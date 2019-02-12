@@ -4384,7 +4384,11 @@ var Modal = function () {
       this._setResizeEvent();
 
       $(this._element).on(Event.CLICK_DISMISS, Selector.DATA_DISMISS, function (event) {
-        return _this.hide(event);
+        $("iframe").each(function(){
+			var vimeo = $(this).parent();
+			vimeo.html( vimeo.html() );
+		});
+		return _this.hide(event);
       });
       $(this._dialog).on(Event.MOUSEDOWN_DISMISS, function () {
         $(_this._element).one(Event.MOUSEUP_DISMISS, function (event) {
